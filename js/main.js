@@ -63,3 +63,11 @@ function CursorFollower(follower_num, delay_time){
     }
   });
 }
+
+$('body').click(function() {
+  addSekiakio($('.kurukuru'));
+})
+
+function addSekiakio(target){
+  target.append('<img id="rotation3" src="images/関暁夫_002.jpg" alt="宣材写真" />');
+}
