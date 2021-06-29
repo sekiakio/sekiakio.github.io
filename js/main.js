@@ -48,8 +48,8 @@ function CursorFollower(follower_num, delay_time){
         //追従要素のアニメーション
         TweenMax.set($(this), {
           css: {    
-            left: followX[i] - (fWidth / 2),
-            top: followY[i] - (fHeight / 2)
+            left: followX[i],
+            top: followY[i]
           }
         });
       });
@@ -65,7 +65,7 @@ function CursorFollower(follower_num, delay_time){
 }
 
 $('body').click(function() {
-  addSekiakio($('.kurukuru'));
+  addSekiakio($('body'));
 })
 
 function addSekiakio(target){

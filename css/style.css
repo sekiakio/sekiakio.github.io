@@ -44,7 +44,7 @@ span {
 body {
   margin: 0;
   padding: 0;
-  cursor: none;
+  /* cursor: none; */
 }
 
 .cursor,
@@ -55,9 +55,6 @@ body {
   left: 0;
 }
 .cursor {
-  width: 8px;
-  height: 8px;
-  background-color: #000000;
   z-index: 1001;
 }
 .follower span {
