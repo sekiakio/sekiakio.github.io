@@ -2,6 +2,17 @@
 <html lang="en-US">
   <head>
     <title>関暁夫Slackジェネレーター</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.hotkeys/0.2.0/jquery.hotkeys.min.js"
+      integrity="sha512-njd096AjZyGuWOttOsHolCOFjq9Xg9txZTl6Pd7FOpwf1nyBDsOXpS1cd184l/EWy5ekDJZldDMQPs9bLCSAtQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script>
       window.onload = function () {
         document.querySelector("#message").addEventListener(
@@ -15,10 +26,29 @@
           "change",
           function () {
             changePosttimestamp(document.querySelector("#posttimestamp").value);
-            document.querySelector("#result > div > div.c-message_kit__gutter__right > a").setAttribute('data-stringify-text','['+value+']');
+            document
+              .querySelector(
+                "#result > div > div.c-message_kit__gutter__right > a"
+              )
+              .setAttribute("data-stringify-text", "[" + value + "]");
           },
           false
         );
+
+        isYoungMode = false;
+        $(document).bind("keydown", 'alt+y', function () {
+          if(isYoungMode){
+            document.querySelector("#sekiakio-icon").setAttribute('src', './images/sekiakio_thumbnail.jpg');
+            // document.querySelector("#result > div > div.c-message_kit__gutter__right > span > a").innerHTML= '関暁夫';
+            // document.querySelector("#result > div > div.c-message_kit__gutter__right > span").setAttribute("data-stringify-text", "関暁夫");
+          }else
+          {
+            document.querySelector("#sekiakio-icon").setAttribute('src', './images/sekiakio_young_thumbnail.jpg');
+            // document.querySelector("#result > div > div.c-message_kit__gutter__right > span > a").innerHTML= '若かりし頃の関暁夫';
+            // document.querySelector("#result > div > div.c-message_kit__gutter__right > span").setAttribute("data-stringify-text", "若かりし頃の関暁夫");
+          }
+          isYoungMode=!isYoungMode;
+        });
       };
 
       function changeMessage(message) {
@@ -97,7 +127,7 @@
     </script>
     <link rel="stylesheet" type="text/css" href="./css/webfont.css" />
     <style>
-      body{
+      body {
         font-family: "Noto Sans JP";
       }
       .parameter-input {
@@ -159,11 +189,7 @@
 
     <!-- 生成結果 -->
     <h5>プレビュー</h5>
-    <div
-      class="result"
-      id="result"
-      style="height: 50px;"
-    >
+    <div class="result" id="result" style="height: 50px">
       <div class="c-message_kit__gutter">
         <div class="c-message_kit__gutter__left" data-stringify-ignore="true">
           <button
@@ -181,6 +207,7 @@
             style="height: 36px; width: 36px"
           >
             <img
+              id = 'sekiakio-icon'
               src="./images/sekiakio_thumbnail.jpg"
               class="c-base_icon c-base_icon--image"
               aria-hidden="true"
@@ -206,7 +233,7 @@
               >関暁夫<span aria-label="(新しいタブが開きます)"></span></a></span
           >&nbsp;&nbsp;<a
             data-stringify-type="replace"
-            data-stringify-text="[11:03]"
+            data-stringify-text="[0:00]"
             data-stringify-requires-siblings="true"
             delay="300"
             data-sk="tooltip_parent"
