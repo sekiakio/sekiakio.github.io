@@ -15,6 +15,7 @@
           "change",
           function () {
             changePosttimestamp(document.querySelector("#posttimestamp").value);
+            document.querySelector("#result > div > div.c-message_kit__gutter__right > a").setAttribute('data-stringify-text','['+value+']');
           },
           false
         );
