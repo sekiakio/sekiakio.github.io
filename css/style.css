@@ -49,6 +49,7 @@ body {
 
 .kurukuru{
   padding-bottom: 100%;
+  user-select: none;
 }
 
 .cursor,
