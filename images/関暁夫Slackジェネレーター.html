@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)file:///E:/home/mywork/sekiakio.github.io/slack-sample.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>関暁夫Slackジェネレーター</title>
+    <script>
+      window.onload = function () {
+        document.querySelector("#message").addEventListener(
+          "change",
+          function () {
+            changeMessage(document.querySelector("#message").value);
+          },
+          false
+        );
+        document.querySelector("#posttimestamp").addEventListener(
+          "change",
+          function () {
+            changePosttimestamp(document.querySelector("#posttimestamp").value);
+          },
+          false
+        );
+      };
+
+      function changeMessage(message) {
+        document.querySelector("#resultMessage").innerText = message;
+      }
+
+      function changePosttimestamp(posttimestamp) {
+        document.querySelector("#resultPosttimestamp").innerText = posttimestamp;
+      }
+
+      function isDesktop() {
+        return /(Slack)/g.test(navigator.userAgent);
+      }
+      function getDesktopThemePreference() {
+        return isDesktop() &&
+          "true" === window.localStorage.getItem("slack-client-theme-os-sync")
+          ? window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light"
+          : null;
+      }
+      function addDarkModeRuleToHead(e) {
+        (window.skFirstPaintStyle = document.createElement("style")),
+          (window.skFirstPaintStyle.type = "text/css"),
+          window.skFirstPaintStyle.appendChild(document.createTextNode(e)),
+          document.head.appendChild(window.skFirstPaintStyle);
+      }
+      function applyTheme() {
+        try {
+          const e = getDesktopThemePreference(),
+            t =
+              null !== e
+                ? e
+                : window.localStorage.getItem("slack-client-theme");
+          if ("client" === document.documentElement.dataset.app)
+            "dark" === t &&
+              addDarkModeRuleToHead("body { background-color: #1a1d21; }");
+          else if ("workflow-builder" === document.documentElement.dataset.app)
+            "dark" === t &&
+              addDarkModeRuleToHead(
+                "body { background-color: #1a1d21; --sk_primary_background: 26, 29, 33; }"
+              );
+          else if ("docs" === document.documentElement.dataset.app) {
+            const e = window.location.search.split("&");
+            let a = "";
+            for (let t = 0; t < e.length; t++) {
+              const o = e[t].split("=");
+              if (
+                o &&
+                2 === o.length &&
+                ("client_theme" === o[0] || "?client_theme" === o[0])
+              ) {
+                a = o[1];
+                break;
+              }
+            }
+            ("dark" !== t && "dark" !== a) ||
+              addDarkModeRuleToHead(
+                "html { background-color: #1a1d21; --sk_primary_background: 26, 29, 33; }"
+              );
+          }
+        } catch (e) {}
+      }
+      (window.skFirstPaintStyle = null), applyTheme();
+    </script>
+    <style>
+      .parameter-input{
+        margin-bottom: 20px;
+      }
+    </style>
+    <!-- <link
+      href="/fonts/slack-icons-v2-efcc328.woff2"
+      rel="preload"
+      as="font"
+      crossorigin="anonymous"
+    />
+    <link
+      href="/fonts/lato-regular-d9ce515.woff2"
+      rel="preload"
+      as="font"
+      crossorigin="anonymous"
+    />
+    <link
+      href="/fonts/lato-black-b64f5e4.woff2"
+      rel="preload"
+      as="font"
+      crossorigin="anonymous"
+    />
+    <link
+      href="/fonts/lato-bold-4b1dc11.woff2"
+      rel="preload"
+      as="font"
+      crossorigin="anonymous"
+    /> -->
+
+    <link href="./関暁夫Slackジェネレーター_files/client-boot-styles.13a0cc6.css" rel="stylesheet">
+    <link href="file:///E:/home/mywork/sekiakio.github.io/stylesheets/slack-kit-styles.a483c72.css" rel="stylesheet">
+    <link href="file:///E:/home/mywork/sekiakio.github.io/stylesheets/helper-styles.1ca91f7.css" rel="stylesheet">
+
+    <script src="file://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js" integrity="sha512-bIUdhwNdPRVsQ7a9X93M400wJTBZTp+L5JZFtGb7VJ0da/mQMB7x3EWEdmR2qfcon0WErjJZdCIXBLmtvd0grw==" crossorigin="anonymous"></script>
+    <script src="file://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js" integrity="sha512-rVtt5MF4HMTRn87EXr5i0njGxx7WLC4A+zvy0bt8tASmGoSRbxbYRRQx24VkZ11/tKjBkURlAfngExqhaD4YYw==" crossorigin="anonymous"></script>
+    <script src="file://cdnjs.cloudflare.com/ajax/libs/clipboard-polyfill/3.0.1/main/clipboard-polyfill.min.js" integrity="sha512-QpQT1tpnIGTHF8DZQmL2Xp9QhAYp7Kfl8yJwlyjoYNe1YDWgE1kd9NfnzPVo2GPDpHtLyixEKaSNL/CNe6ZzYg==" crossorigin="anonymous"></script>
+    <script src="file://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.1.0/chroma.min.js" integrity="sha512-yocoLferfPbcwpCMr8v/B0AB4SWpJlouBwgE0D3ZHaiP1nuu5djZclFEIj9znuqghaZ3tdCMRrreLoM8km+jIQ==" crossorigin="anonymous"></script>
+    <script src="./関暁夫Slackジェネレーター_files/html2canvas.js.ダウンロード"></script>
+
+    <link rel="shortcut icon" href="file:///E:/home/mywork/sekiakio.github.io/favicon-32.png" sizes="16x16 32x32 48x48" type="image/png">
+  </head>
+
+  <body tabindex="-1" class="
+      supports_custom_scrollbar
+      p-client_desktop--ia-top-nav
+      sk-client-theme--light
+    " ng-app="theme" ng-controller="ThemeController">
+  <h4 style="margin: 3px;">関暁夫Slackジェネレーター</h4>
+    <div class="parameter-input">
+      <div>
+        時刻
+        <input id="posttimestamp" value="0:00">
+      </div>
+      <div>
+        メッセージ
+        <input id="message" value="やばいでしょ。">
+      </div>
+    </div>
+    
+    <!-- 生成結果 -->
+    <div class="result" id="result">
+      <div class="c-message_kit__gutter">
+        <div class="c-message_kit__gutter__left" data-stringify-ignore="true">
+          <button class="
+              c-button-unstyled
+              c-message_kit__avatar
+              c-avatar c-avatar--interactive
+            " aria-hidden="true" aria-label="関暁夫 のプロフィールを表示" tabindex="-1" aria-haspopup="menu" aria-expanded="false" type="button" style="height: 36px; width: 36px">
+            <img src="./関暁夫Slackジェネレーター_files/sekiakio_thumbnail.jpg" class="c-base_icon c-base_icon--image" aria-hidden="true" role="img" alt="" style="height: 36px; width: 36px">
+          </button>
+        </div>
+        <div class="c-message_kit__gutter__right" data-qa="message_content">
+          <span class="c-message__sender c-message_kit__sender" data-qa="message_sender" data-stringify-type="replace" data-stringify-text="関暁夫"><a target="_blank" rel="noopener noreferrer" data-qa="message_sender_name" aria-haspopup="menu" aria-expanded="false" class="c-link c-message__sender_link">関暁夫<span aria-label="(新しいタブが開きます)"></span></a></span>&nbsp;&nbsp;<a data-stringify-type="replace" data-stringify-text="[11:03]" data-stringify-requires-siblings="true" delay="300" data-sk="tooltip_parent" class="c-link c-timestamp"><span class="c-timestamp__label" id="resultPosttimestamp">0:00</span></a><br>
+          <div class="c-message_kit__blocks c-message_kit__blocks--rich_text">
+            <div class="
+                c-message__message_blocks c-message__message_blocks--rich_text
+              ">
+              <div class="p-block_kit_renderer" data-qa="block-kit-renderer">
+                <div class="
+                    p-block_kit_renderer__block_wrapper
+                    p-block_kit_renderer__block_wrapper--first
+                  ">
+                  <div class="p-rich_text_block" dir="auto">
+                    <div class="p-rich_text_section" id="resultMessage">
+                      やばいでしょ。
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+</body></html>
