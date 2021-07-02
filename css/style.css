@@ -47,6 +47,10 @@ body {
   /* cursor: none; */
 }
 
+.kurukuru{
+  padding-bottom: 100%;
+}
+
 .cursor,
 .follower span {
   border-radius: 0%;
