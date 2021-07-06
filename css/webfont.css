@@ -33,9 +33,9 @@
     src: url('../fonts/NotoSansJP/NotoSansJP-Bold.otf') format('opentype');
 }
 
-@font-face {
+/* @font-face {
     font-family: 'Noto Sans JP';
     font-style: normal;
     font-weight: 900;
-    NotoSansJP-Regular .otf
-}
+    NotoSansJP-Regular.otf
+} */

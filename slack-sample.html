@@ -22,6 +22,14 @@
           },
           false
         );
+
+        document.querySelector("#sender").addEventListener(
+          "change",
+          function () {
+            changeSenderName(document.querySelector("#sender").value);
+          },
+          false
+        );
         document.querySelector("#posttimestamp").addEventListener(
           "change",
           function () {
@@ -50,6 +58,11 @@
           isYoungMode=!isYoungMode;
         });
       };
+
+      function changeSenderName(name){
+        document.querySelector("#resultSendername > a").innerText = name;
+        document.querySelector("#resultSendername").setAttribute("data-stringify-text", name);
+      }
 
       function changeMessage(message) {
         document.querySelector("#resultMessage").innerText = message;
@@ -180,6 +193,10 @@
         <input id="posttimestamp" value="0:00" />
       </div>
       <div>
+        名前
+        <input id="sender" value="関暁夫" />
+      </div>
+      <div>
         メッセージ
         <input id="message" value="やばいでしょ。" />
       </div>
@@ -218,7 +235,7 @@
           </button>
         </div>
         <div class="c-message_kit__gutter__right" data-qa="message_content">
-          <span
+          <span id="resultSendername"
             class="c-message__sender c-message_kit__sender"
             data-qa="message_sender"
             data-stringify-type="replace"
