@@ -186,6 +186,16 @@
       href="favicon.ico"
       type="image/vnd.microsoft.icon"
     />
+
+    <style>
+      .content {
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+      }
+    </style>
   </head>
 
   <body
@@ -215,6 +225,28 @@
       <p>
         貴方は関暁夫です！右クリックで画像をDLできる楽しみにしておいて下さい！いいですね！
       </p>
+    </div>
+    <div>
+      <button
+        onclick="{
+        if(this.value == '1') {document.querySelector('#rnote').style.display='none';}
+        else{document.querySelector('#rnote').style.display='block';}
+        this.value = this.value * -1 + 1;
+        }"
+        value="0"
+      >
+        更新をみる
+      </button>
+      <pre
+        id="rnote"
+        style="font-size: 14px; background-color: #eeeeee; display: none"
+      >
+* 生成画像が横長すぎる問題を修正。これで右クリコピーで済むようになったってこと。🆕
+* 新たにプロフィール画像、名前をカスタマイズできるように！
+* 若かりし関暁夫モードを追加
+* 画像生成機能を追加したよ。カッコイイ。
+* 新規作成
+      </pre>
     </div>
     <hr />
     <div class="parameter-input">
