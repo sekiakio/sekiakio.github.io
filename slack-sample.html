@@ -42,26 +42,51 @@
           },
           false
         );
+        document.querySelector("#profileImage").addEventListener(
+          "change",
+          function () {
+            var file = $(document.querySelector("#profileImage")).prop(
+              "files"
+            )[0];
+            var reader = new FileReader();
+            reader.onload = function () {
+              document
+                .querySelector("#sekiakio-icon")
+                .setAttribute("src", reader.result);
+            };
+            reader.readAsDataURL(file);
+          },
+          false
+        );
+
+        //
+        $(document.querySelector("#profileImage")).prop("files")[0];
+        //
 
         isYoungMode = false;
-        $(document).bind("keydown", 'alt+y', function () {
-          if(isYoungMode){
-            document.querySelector("#sekiakio-icon").setAttribute('src', './images/sekiakio_thumbnail.jpg');
+        $(document).bind("keydown", "alt+y", function () {
+          if (isYoungMode) {
+            document
+              .querySelector("#sekiakio-icon")
+              .setAttribute("src", "./images/sekiakio_thumbnail.jpg");
             // document.querySelector("#result > div > div.c-message_kit__gutter__right > span > a").innerHTML= '関暁夫';
             // document.querySelector("#result > div > div.c-message_kit__gutter__right > span").setAttribute("data-stringify-text", "関暁夫");
-          }else
-          {
-            document.querySelector("#sekiakio-icon").setAttribute('src', './images/sekiakio_young_thumbnail.jpg');
+          } else {
+            document
+              .querySelector("#sekiakio-icon")
+              .setAttribute("src", "./images/sekiakio_young_thumbnail.jpg");
             // document.querySelector("#result > div > div.c-message_kit__gutter__right > span > a").innerHTML= '若かりし頃の関暁夫';
             // document.querySelector("#result > div > div.c-message_kit__gutter__right > span").setAttribute("data-stringify-text", "若かりし頃の関暁夫");
           }
-          isYoungMode=!isYoungMode;
+          isYoungMode = !isYoungMode;
         });
       };
 
-      function changeSenderName(name){
+      function changeSenderName(name) {
         document.querySelector("#resultSendername > a").innerText = name;
-        document.querySelector("#resultSendername").setAttribute("data-stringify-text", name);
+        document
+          .querySelector("#resultSendername")
+          .setAttribute("data-stringify-text", name);
       }
 
       function changeMessage(message) {
@@ -81,7 +106,8 @@
             .appendChild(await html2canvas(document.querySelector("#result")));
         })();
       }
-
+    </script>
+    <script>
       function isDesktop() {
         return /(Slack)/g.test(navigator.userAgent);
       }
@@ -179,8 +205,12 @@
         あなたを詐欺罪とメッセージ改ざん罪で訴えます！理由はもちろんお分かりですね？
       </p>
       <p>
-        あなたが皆をこんなジェネレータで騙し、Slackを破壊したからです！覚悟の準備をしておいて下さい。ちかいうちに訴えます。メッセージも変更します。時刻も問答無用で変更します。
+        あなたが皆をこんなジェネレータで騙し、Slackを破壊したからです！覚悟の準備をしておいて下さい。
       </p>
+      <p>
+        ちかいうちに訴えます。プロフィール画像も変更します。名前も問答無用で変更します。
+      </p>
+
       <p>画像生成のボタンクリックの準備をしておいてください！</p>
       <p>
         貴方は関暁夫です！右クリックで画像をDLできる楽しみにしておいて下さい！いいですね！
@@ -189,15 +219,19 @@
     <hr />
     <div class="parameter-input">
       <div>
-        時刻
+        時刻:
         <input id="posttimestamp" value="0:00" />
       </div>
       <div>
-        名前
+        名前:
         <input id="sender" value="関暁夫" />
       </div>
       <div>
-        メッセージ
+        プロフィール画像:
+        <input type="file" id="profileImage" />
+      </div>
+      <div>
+        メッセージ:
         <input id="message" value="やばいでしょ。" />
       </div>
     </div>
@@ -206,7 +240,11 @@
 
     <!-- 生成結果 -->
     <h5>プレビュー</h5>
-    <div class="result" id="result" style="height: 50px">
+    <div
+      class="result"
+      id="result"
+      style="height: 50px; display: inline-block; padding-right: 10px"
+    >
       <div class="c-message_kit__gutter">
         <div class="c-message_kit__gutter__left" data-stringify-ignore="true">
           <button
@@ -224,7 +262,7 @@
             style="height: 36px; width: 36px"
           >
             <img
-              id = 'sekiakio-icon'
+              id="sekiakio-icon"
               src="./images/sekiakio_thumbnail.jpg"
               class="c-base_icon c-base_icon--image"
               aria-hidden="true"
@@ -235,7 +273,8 @@
           </button>
         </div>
         <div class="c-message_kit__gutter__right" data-qa="message_content">
-          <span id="resultSendername"
+          <span
+            id="resultSendername"
             class="c-message__sender c-message_kit__sender"
             data-qa="message_sender"
             data-stringify-type="replace"
