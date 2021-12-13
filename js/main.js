@@ -2,7 +2,7 @@
 カーソルに追従するアニメーション
 */
 
-function CursorFollower(follower_num, delay_time){
+function CursorFollower(follower_num, delay_time, posleft = 0, postop = 0){
 
   let $cursor = $('.cursor'),       //カーソルになる要素
       $follower = $('.follower'),   //カーソルを追従する要素
@@ -46,8 +46,8 @@ function CursorFollower(follower_num, delay_time){
         //追従要素のアニメーション
         TweenMax.set($(this), {
           css: {    
-            left: followX[i] + 10,
-            top: followY[i] + 10
+            left: followX[i] + posleft,
+            top: followY[i] + postop
           }
         });
       });

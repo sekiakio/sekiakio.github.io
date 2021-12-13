@@ -17,7 +17,7 @@ $('input[name="mousemode"]:radio').change(function () {
 function setMouseMode(mode) {
   switch (mode) {
     case "mouse-sekiakio":
-      CursorFollower(5, 4);
+      CursorFollower(5, 4, 10, 10);
       break;
     case "mouse-sato":
         setSatoMode();
