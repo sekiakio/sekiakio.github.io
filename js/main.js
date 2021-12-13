@@ -2,8 +2,6 @@
 カーソルに追従するアニメーション
 */
 
-CursorFollower(5,4);  //関数の使用
-
 function CursorFollower(follower_num, delay_time){
 
   let $cursor = $('.cursor'),       //カーソルになる要素
@@ -22,7 +20,7 @@ function CursorFollower(follower_num, delay_time){
 
   //追従要素のHTMLを格納する変数に追従要素の個数分だけspanタグを格納    
   for(let i=0;i<numFollow;i++){     
-    fHTML += '<span class="follower'+i+'"></span>'
+    fHTML += '<span class="follower"></span>'
   }
   $follower.html(fHTML);            //.followerに追従要素を格納
 

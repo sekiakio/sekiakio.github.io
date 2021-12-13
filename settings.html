@@ -17,40 +17,20 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.1/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script
       src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
-    <h3>ランチ一覧</h3>
-    備えよ。
-    <div class="lunch">
-      <ul class="lunch-list">
-        <li>🍜日高屋</li>
-        <li>🍜壱七家</li>
-        <li>🍜一蘭</li>
-        <li>🍜一撃</li>
-        <li>🍜ラーメンスクエア</li>
-        <li>🍜たま館</li>
-        <li>🍜大勝軒</li>
-        <li>🍔デリッシャーズ（鬼公園ハンバーガー）</li>
-        <li>🍔OLDNEWDINER（BooBoo）</li>
-        <li>🍔モスバーガー</li>
-        <li>🍔マクドナルド</li>
-        <li>🐔ケンタッキーフライドチキン</li>
-        <li>🐔から好し</li>
-        <li>💮はなまるうどん</li>
-        <li>🍤てんや</li>
-        <li>🍣スシロー</li>
-        <li>🍚でん助</li>
-        <li>🍝PiaPia</li>
-        <li>🍛マナカマナ</li>
-        <li>&#x1f1e8;&#x1f1f3;天福居（他称坪井さん行きつけ）</li>
-        <li>🐍宇奈とと</li>
-        <li>🐮吉野家</li>
-        <li>🐮松屋</li>
-      </ul>
+    <h3>設定</h3>
+    麺硬め、味濃いめ。
+    <div class="settings">
+        <label>マウスモード</label>
+        <input type="radio" name='mousemode' id='mouse-normal' value="mouse-normal" ><labeL for='mouse-normal'>なし</labeL>
+        <input type="radio" name='mousemode' id='mouse-sekiakio' value="mouse-sekiakio" ><labeL for='mouse-sekiakio'>関暁夫</labeL>
+        <input type="radio" name='mousemode' id='mouse-sato' value="mouse-sato" ><labeL for='mouse-sato'>S藤さん</labeL>
     </div>
     <script>
       twemoji.parse(document.body);
@@ -58,5 +38,6 @@
     <div class="cursor"></div>
     <div class="follower"></div>
     <script src="./js/main.js"></script>
+    <script src="./js/settings.js"></script>
   </body>
 </html>
