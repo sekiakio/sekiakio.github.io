@@ -27,10 +27,29 @@
     <h3>設定</h3>
     麺硬め、味濃いめ。
     <div class="settings">
-        <label>マウスモード</label>
-        <input type="radio" name='mousemode' id='mouse-normal' value="mouse-normal" ><labeL for='mouse-normal'>なし</labeL>
-        <input type="radio" name='mousemode' id='mouse-sekiakio' value="mouse-sekiakio" ><labeL for='mouse-sekiakio'>関暁夫</labeL>
-        <input type="radio" name='mousemode' id='mouse-sato' value="mouse-sato" ><labeL for='mouse-sato'>S藤さん</labeL>
+      <ol>
+        <ul>
+          <label>マウスモード</label>
+          <input
+            type="radio"
+            name="mousemode"
+            id="mouse-normal"
+            value="mouse-normal"
+          /><label for="mouse-normal">なし</label>
+          <input
+            type="radio"
+            name="mousemode"
+            id="mouse-sekiakio"
+            value="mouse-sekiakio"
+          /><label for="mouse-sekiakio">関暁夫</label>
+          <input
+            type="radio"
+            name="mousemode"
+            id="mouse-sato"
+            value="mouse-sato"
+          /><label for="mouse-sato">S藤さん</label>
+        </ul>
+      </ol>
     </div>
     <script>
       twemoji.parse(document.body);
@@ -40,9 +59,9 @@
     <script src="./js/main.js"></script>
     <script src="./js/settings.js"></script>
     <script>
-        $(function(){
-            initDrawSettings();
-        });
+      $(function () {
+        initDrawSettings();
+      });
     </script>
   </body>
 </html>
