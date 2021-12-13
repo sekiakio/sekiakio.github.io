@@ -34,4 +34,5 @@ function setSatoMode() {
   $(".follower").css("width", "280px");
   $(".follower").css("height", "400px");
   $(".follower span").css("background-image", 'url("./images/mouse.png")');
+  $("body").css({'cssText': 'cursor: none !important;'});
 }
