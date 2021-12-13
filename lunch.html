@@ -17,6 +17,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.1/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script
       src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"
       crossorigin="anonymous"
@@ -25,31 +26,149 @@
   <body>
     <h3>ランチ一覧</h3>
     備えよ。
+    <div>
+    <input type="button" onclick="setAllDetails(true)" value='全て開く'/>
+    <input type="button" onclick="setAllDetails(false)" value='やっぱり閉じる'/>
+  </div>
     <div class="lunch">
       <ul class="lunch-list">
-        <li>🍜日高屋</li>
-        <li>🍜壱七家</li>
-        <li>🍜一蘭</li>
-        <li>🍜一撃</li>
-        <li>🍜ラーメンスクエア</li>
-        <li>🍜たま館</li>
-        <li>🍜大勝軒</li>
-        <li>🍔デリッシャーズ（鬼公園ハンバーガー）</li>
-        <li>🍔OLDNEWDINER（BooBoo）</li>
-        <li>🍔モスバーガー</li>
-        <li>🍔マクドナルド</li>
-        <li>🐔ケンタッキーフライドチキン</li>
-        <li>🐔から好し</li>
-        <li>💮はなまるうどん</li>
-        <li>🍤てんや</li>
-        <li>🍣スシロー</li>
-        <li>🍚でん助</li>
-        <li>🍝PiaPia</li>
-        <li>🍛マナカマナ</li>
-        <li>&#x1f1e8;&#x1f1f3;天福居（他称坪井さん行きつけ）</li>
-        <li>🐍宇奈とと</li>
-        <li>🐮吉野家</li>
-        <li>🐮松屋</li>
+        <li>
+          <details>
+            <summary>🍜日高屋</summary>
+            <a target="_blank" href="https://hidakaya.hiday.co.jp/index.html">公式HP</a>
+          </details>
+        <li>
+          <details>
+            <summary>🍜壱七家</summary>
+            <a target="_blank" href="http://www.ichinanaya.com">公式HP</a>
+        </li>
+        <li>
+          <details>
+            <summary>🍜一蘭</summary>
+            <a target="_blank" href="https://ichiran.com/">公式HP</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>🍜一撃</summary>
+            <a target="_blank" href="https://tabelog.com/tokyo/A1329/A132901/13049160/">食べログ</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>🍜ラーメンスクエア</summary>
+            <a target="_blank" href="https://ramen-square.com/">公式HP</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>🍜たま館</summary>
+            <a target="_blank" href="https://tabelog.com/tokyo/P041593/premiseLst/">食べログ</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>🍜大勝軒</summary>
+            <a target="_blank" href="https://koganei-taishoken-group.com/">公式HP</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>🍔デリッシャーズ（鬼公園ハンバーガー）</summary>
+            <a target="_blank" href="https://deliciers.net/">公式HP</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>🍔OLDNEWDINER（BooBoo）</summary>
+            <a target="_blank" href="https://www.oldnewdiner.jp/">公式HP</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>🍔モスバーガー</summary>
+            <a target="_blank" href="https://www.mos.jp/">公式HP</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>🍔マクドナルド</summary>
+            <a target="_blank" href="https://www.mcdonalds.co.jp/">公式HP</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>🐔ケンタッキーフライドチキン</summary>
+            <a target="_blank" href="https://www.kfc.co.jp/">公式HP</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>🐔から好し</summary>
+            <a target="_blank" href="https://www.skylark.co.jp/karayoshi/">公式HP</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>💮はなまるうどん</summary>
+            <a target="_blank" href="💮はなまるうどん">公式HP</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>🍤てんや</summary>
+            <a target="_blank" href="https://www.tenya.co.jp/sp/">公式HP</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>🍣スシロー</summary>
+            <a target="_blank" href="https://www.akindo-sushiro.co.jp/">公式HP</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>🍚でん助</summary>
+            <a target="_blank" href="https://tabelog.com/tokyo/A1329/A132901/13158892/">食べログ</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>🍝PiaPia</summary>
+            <a target="_blank" href="https://spaghetti-pizza.wixsite.com/piapia">公式HP(八王子店)</a>
+            <a target="_blank" href="https://tabelog.com/tokyo/A1329/A132901/13202796/">食べログ</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>🍛マナカマナ</summary>
+            <a target="_blank" href="https://tabelog.com/tokyo/A1329/A132901/13042769/">食べログ</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>&#x1f1e8;&#x1f1f3;天福居（他称坪井さん行きつけ）</summary>
+            <a target="_blank" href="https://tabelog.com/tokyo/A1329/A132901/13196050/">食べログ</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>🐍宇奈とと</summary>
+            <a target="_blank" href="https://www.unatoto.com/">公式HP</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>🐮吉野家</summary>
+            <a target="_blank" href="https://www.yoshinoya.com/">公式HP</a>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>🐮松屋</summary>
+            <a target="_blank" href="https://www.matsuyafoods.co.jp/">公式HP</a>
+          </details>
+        </li>
       </ul>
     </div>
     <script>
@@ -58,5 +177,16 @@
     <div class="cursor"></div>
     <div class="follower"></div>
     <script src="./js/main.js"></script>
+    <script src="./js/settings.js"></script>
+    <script>
+      function setAllDetails(Opened){
+        if(Opened){
+          $('details').attr('open','open');
+        }else{
+          $('details').removeAttr('open');
+        }
+        
+      }
+    </script>
   </body>
 </html>
