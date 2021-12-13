@@ -4,6 +4,10 @@ function setting(){
     setMouseMode($.cookie('mousemode'));
 }
 
+function initDrawSettings(){
+    $(`#${$.cookie("mousemode")}`).prop("checked", "true");
+}
+
 $('input[name="mousemode"]:radio').change(function () {
   var mode = $(this).val();
   setMouseMode(mode);
