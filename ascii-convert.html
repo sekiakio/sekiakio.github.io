@@ -28,16 +28,20 @@
   <body>
     <h3>ASCII 変換ツール</h3>
 
-    <div class="ui-field-contain" data-defaults="true">
-        <label for="convert">進数：</label>
-        <select data-defaults="true" id="convert">
-            <option value="ascii2">2進数</option>
-            <option value="ascii8">8進数</option>
-            <option value="ascii10">10進数</option>
-            <option value="ascii16" selected>16進数</option>
-            <option value="urlencode">URLエンコード(UTF-8)</option>
-            <option value="escape">エスケープ</option>
-        </select>
+    <div>
+      <label for="convert">進数：</label>
+      <select data-defaults="true" id="convert">
+        <option value="ascii2">2進数</option>
+        <option value="ascii8">8進数</option>
+        <option value="ascii10">10進数</option>
+        <option value="ascii16" selected>16進数</option>
+        <option value="urlencode">URLエンコード(UTF-8)</option>
+        <option value="escape">エスケープ</option>
+      </select>
+    </div>
+    <div>
+      <label>分割文字</label>
+      <input type="text" id="splitc" value="-" maxlength="1" />
     </div>
     <div>
       <div>
@@ -49,11 +53,11 @@
         <textarea id="output" rows="8" cols="200"></textarea>
       </div>
     </div>
-    <div >
-        <div >
-            <button onclick="convertRev()">ASCII→文字列変換</button>
-            <button onclick="convert()">文字列→ASCII変換</button>
-        </div>
+    <div>
+      <div>
+        <button onclick="convertRev()">ASCII→文字列変換</button>
+        <button onclick="convert()">文字列→ASCII変換</button>
+      </div>
     </div>
 
     <div class="cursor"></div>
@@ -70,7 +74,8 @@
             return output.join(" ");
           },
           decode: function (input, n) {
-            input = input.split("-");
+            var splitc = $("#splitc").val();
+            input = input.split(splitc);
             var output = [];
             for (var i = 0; i < input.length; i++)
               output.push(String.fromCharCode(parseInt(input[i], n)));
