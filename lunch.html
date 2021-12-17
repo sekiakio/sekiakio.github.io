@@ -193,8 +193,9 @@
         </li>
       </ul>
     </div>
-    <input type="button" onclick="generateList()" value="チェックしたものをリストアップする">
-    <div><textarea id=checkedList cols="40" rows="10" onfocus="this.select();"></textarea></div>
+    <h4>候補リスト</h4>
+    コピペして使用せよ。
+    <div><textarea id=checkedList cols="40" rows="10" onfocus="this.select();" title="クリックすると内容が全選択されるのでコピペして利用してください"></textarea></div>
     
     <script>
       twemoji.parse(document.body);
@@ -204,6 +205,9 @@
     <script src="./js/main.js"></script>
     <script src="./js/settings.js"></script>
     <script>
+      $(function(){
+        $('input[type="checkbox"][name="kouho"]').on('change', generateList);
+      })
       function setAllDetails(Opened){
         if(Opened){
           $('details').attr('open','open');
