@@ -191,7 +191,7 @@
       </ul>
     </div>
     <input type="button" onclick="generateList()" value="チェックしたものをリストアップする">
-    <div><textarea id=checkedList cols="100" rows="10" onfocus="this.select();"></textarea></div>
+    <div><textarea id=checkedList cols="40" rows="10" onfocus="this.select();"></textarea></div>
     
     <script>
       twemoji.parse(document.body);
@@ -219,7 +219,7 @@
         $(checkeds).each(function (index, element) {
           var emoji = $(element).parent('summary').find('img').prop('alt');
           var shop = $(element).parent('summary').text();
-          list = list + `- ${emoji}${shop}`;
+          list = list + `${emoji}${shop}`;
           if(checkeds.legnth != index + 1){
             list = list + '\n';
           }
