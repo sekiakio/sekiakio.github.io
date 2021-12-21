@@ -37,9 +37,33 @@
     <h3>ランチ一覧</h3>
     備えよ。
     <div>
+      <button
+      onclick="{
+      if(this.value == '1') {document.querySelector('#rnote').style.display='none';}
+      else{document.querySelector('#rnote').style.display='block';}
+      this.value = this.value * -1 + 1;
+      }"
+      value="0"
+    >
+      更新をみる
+    </button>
+    <pre
+      id="rnote"
+      style="font-size: 14px; background-color: #2c2c2c; color: greenyellow; display: none;width: 600px;"
+    >
+  $ show log
+  2021/12/21 フォレストコースト（ホテルマイステイズ立川）追加
+  2021/12/15 銀だこ追加
+  2021/12/14 ごじんか追加
+  2021/12/10 新規追加
+    </pre>
+    </div>
+    <hr />
+    <div>
     <input type="button" onclick="setAllDetails(true)" value='全て開く'/>
     <input type="button" onclick="setAllDetails(false)" value='やっぱり閉じる'/>
   </div>
+
     <div class="lunch">
       <ul class="lunch-list">
         <li>
@@ -191,11 +215,18 @@
             <a target="_blank" href="https://www.unatoto.com/">公式HP</a>
           </details>
         </li>
+        <li>
+          <details>
+            <summary><input type="checkbox" name='kouho'>🍴フォレストコースト（ホテルマイステイズ立川）</summary>
+            <a target="_blank" href="https://www.mystays.com/restaurants-hotel-mystays-tachikawa-tokyo/">公式HP</a>
+          </details>
+        </li>
       </ul>
     </div>
+    <hr />
     <h4>候補リスト</h4>
     コピペして使用せよ。
-    <div><textarea id=checkedList cols="40" rows="10" onfocus="this.select();" title="クリックすると内容が全選択されるのでコピペして利用してください" readonly></textarea></div>
+    <div><textarea id=checkedList cols="50" rows="10" onfocus="this.select();" title="クリックすると内容が全選択されるのでコピペして利用してください" readonly></textarea></div>
     
     <script>
       twemoji.parse(document.body);
